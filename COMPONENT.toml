@@ -1,16 +1,16 @@
 [component]
 name = "SigmaOS-signoff"
 tier = 2
-stability = "scaffold"
+stability = "beta"
 language = "rust"
-description = "SigmaOS signoff component (Arch Linux inspired)"
-upstream = []
+description = "SigmaOS signoff component — Arch Linux package signoff tool with ArchWeb CSRF session, pacman localdb matching, and list/signoff/revoke/interactive CLI (archlinux/arch-signoff inspired)"
+upstream = ["https://github.com/archlinux/arch-signoff"]
 
 [contract]
-provides = ["component"]
+provides = ["signoff-cli", "signoff-archweb-session", "pacman-localdb"]
 depends_on = []
 
 [maturity]
 status = "Implemented"
-test_evidence = "Compiles and passes AAA unit tests"
-next_milestone = "Hardware and runtime integration"
+test_evidence = "cargo test: 19 integration tests pass (status resolution, filtering, formatting, pacman desc parsing, ArchWeb JSON v2)"
+next_milestone = "Live ArchWeb verification against archlinux.org"
